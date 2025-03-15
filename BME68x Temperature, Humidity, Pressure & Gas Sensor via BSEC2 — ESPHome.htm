@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Instructions for setting up BME68x temperature, humidity, pressure, and gas sensors via BSEC2.">
+<meta name="keywords" content="BME680, BME688, BME68X, BSEC2">
+<meta itemprop="name" content="BME68x Temperature, Humidity, Pressure &amp; Gas Sensor via BSEC2">
+<meta itemprop="description" content="Instructions for setting up BME68x temperature, humidity, pressure, and gas sensors via BSEC2.">
+<meta itemprop="image" content="https://esphome.io/_images/bme680.jpg">
+<meta name="twitter:title" content="BME68x Temperature, Humidity, Pressure &amp; Gas Sensor via BSEC2">
+<meta name="twitter:image:src" content="https://esphome.io/_images/bme680.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@OttoWinter_">
+<meta name="twitter:description" content="Instructions for setting up BME68x temperature, humidity, pressure, and gas sensors via BSEC2.">
+<meta property="og:title" content="BME68x Temperature, Humidity, Pressure &amp; Gas Sensor via BSEC2">
+<meta property="og:image" content="https://esphome.io/_images/bme680.jpg">
+<meta property="og:type" content="website">
+<meta property="og:description" content="Instructions for setting up BME68x temperature, humidity, pressure, and gas sensors via BSEC2.">
+
+    <title>BME68x Temperature, Humidity, Pressure &amp; Gas Sensor via BSEC2 — ESPHome</title>
+    <link rel="stylesheet" type="text/css" href="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/pygments.css">
+    <link rel="stylesheet" type="text/css" href="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/alabaster.css">
+    <link rel="stylesheet" type="text/css" href="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/copybutton.css">
+    <link id="pygments_dark_css" media="(prefers-color-scheme: dark)" rel="stylesheet" type="text/css" href="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/pygments_dark.css">
+    <script data-url_root="../../" id="documentation_options" src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/documentation_options.js"></script>
+    <script src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/doctools.js"></script>
+    <script src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/sphinx_highlight.js"></script>
+    <script src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/clipboard.min.js"></script>
+    <script src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/copybutton.js"></script>
+    <link rel="canonical" href="https://esphome.io/components/sensor/bme68x_bsec2.html">
+    <link rel="index" title="Index" href="https://esphome.io/genindex.html">
+    <link rel="search" title="Search" href="https://esphome.io/search.html">
+    <link rel="next" title="BMI160 Accelerometer/Gyroscope Sensor" href="https://esphome.io/components/sensor/bmi160.html">
+    <link rel="prev" title="BME680 Temperature+Pressure+Humidity+Gas Sensor via BSEC" href="https://esphome.io/components/sensor/bme680_bsec.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/css2.css" rel="stylesheet">
+  <link href="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/pagefind-modular-ui.css" rel="stylesheet">
+  <link rel="stylesheet" href="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/custom.css" type="text/css">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://esphome.io/_static/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://esphome.io/_static/favicon.ico">
+  <link rel="icon" type="image/png" sizes="512x512" href="https://esphome.io/_static/favicon-512x512.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="https://esphome.io/_static/favicon-256x256.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="https://esphome.io/_static/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="https://esphome.io/_static/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://esphome.io/_static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://esphome.io/_static/favicon-16x16.png">
+  <link rel="manifest" href="https://esphome.io/_static/site.webmanifest">
+  <link rel="mask-icon" href="https://esphome.io/_static/safari-pinned-tab.svg" color="#18bcf2">
+  <link rel="me" href="https://fosstodon.org/@esphome">
+  <meta name="apple-mobile-web-app-title" content="ESPHome">
+  <meta name="application-name" content="ESPHome">
+  <meta name="msapplication-TileColor" content="#18bcf2">
+  <meta name="msapplication-config" content="/_static/browserconfig.xml">
+  <meta name="theme-color" content="#18bcf2">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta property="og:site_name" content="ESPHome">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, interactive-widget=overlays-content">
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><svg xmlns="http://www.w3.org/2000/svg" width="1194" height="240" viewBox="0 0 1194 240">
+    <defs>
+        <style>
+            .casita {
+                fill: var(--logo-casita-color, #18BCF2);
+            }
+            .text{
+                fill: var(--logo-text-color, #1D2126);
+            }
+        </style>
+    </defs>
+    <g class="casita">
+        <path d="M240 219C240 227.24 233.24 234 225 234H15C6.76 234 0 227.24 0 219V129C0 120.76 4.78 109.22 10.6 103.4L109.4 4.61999C115.24 -1.22001 124.78 -1.22001 130.62 4.61999L229.4 103.4C235.24 109.24 240 120.76 240 129V219Z"></path>
+        <path fill="#FFFFFF" d="M160 78.66H80C76.68 78.66 74 81.34 74 84.66V234H86V90.66H154V102.66H104C100.68 102.66 98 105.34 98 108.66V132.66C98 135.98 100.68 138.66 104 138.66H154V150.66H104C100.68 150.66 98 153.34 98 156.66V180.66C98 183.98 100.68 186.66 104 186.66H154V198.66H104C100.68 198.66 98 201.34 98 204.66C98 207.98 100.68 210.66 104 210.66H160C163.32 210.66 166 207.98 166 204.66V180.66C166 177.34 163.32 174.66 160 174.66H110V162.66H160C163.32 162.66 166 159.98 166 156.66V132.66C166 129.34 163.32 126.66 160 126.66H110V114.66H160C163.32 114.66 166 111.98 166 108.66V84.66C166 81.34 163.32 78.66 160 78.66Z"></path>
+    </g>
+    <g class="text">
+        <path d="M423 167.61V190.11H336V49.95H423V72.63H359.82V108.91H416.26V130.01H359.82V167.61H423Z"></path>
+        <path d="M491.08 47.41C503.9 47.41 514.54 50.53 523.04 56.79C531.54 63.03 536.76 71.39 538.7 81.83L516.3 87.93C515.04 81.93 512.12 77.31 507.54 74.05C502.94 70.81 497.28 69.17 490.52 69.17C483.26 69.17 477.52 70.91 473.28 74.37C469.02 77.83 466.9 82.45 466.9 88.19C466.9 97.25 472.52 103.13 483.78 105.81L506.66 111.53C518.48 114.59 527.32 119.45 533.2 126.11C539.08 132.77 542.02 140.97 542.02 150.71C542.02 163.21 537.48 173.31 528.42 181.03C519.36 188.75 507.24 192.61 492.04 192.61C478.36 192.61 466.78 189.39 457.36 182.95C448.04 176.27 442.54 167.45 440.86 156.51L463.26 150.69C464.08 156.87 467.16 161.73 472.5 165.23C477.84 168.73 484.64 170.47 492.9 170.47C501.16 170.47 507.08 168.79 511.6 165.45C516.14 162.11 518.4 157.57 518.4 151.81C518.4 142.81 512.78 136.87 501.52 133.99L478.64 128.45C466.88 125.77 458.06 120.99 452.16 114.15C446.26 107.31 443.3 98.95 443.3 89.07C443.3 76.69 447.7 66.65 456.48 58.93C465.26 51.21 476.8 47.35 491.12 47.35L491.08 47.41Z"></path>
+        <path d="M666.1 95.61C666.1 109.37 661.92 120.49 653.58 128.99C645.24 137.49 634 141.75 619.88 141.75H588.38V190.13H564.56V49.95H620.06C634.3 49.95 645.54 54.07 653.76 62.27C661.98 70.49 666.08 81.59 666.08 95.59L666.1 95.61ZM641.16 95.05C641.16 87.99 638.96 82.25 634.56 77.85C630.16 73.45 623.92 71.25 615.86 71.25H588.4V120.85H615.5C623.74 120.85 630.1 118.51 634.54 113.81C638.98 109.13 641.2 102.87 641.2 95.05H641.16Z"></path>
+        <path d="M687.38 49.95H711.2V108.55L772.98 108.73V49.95H796.98V190.11H772.98V129.83L711.2 129.65V190.11H687.38V49.95Z"></path>
+        <path d="M868.6 92.79C883.1 92.79 894.92 97.45 904.04 106.75C913.16 116.07 917.72 128.03 917.72 142.65C917.72 157.27 913.16 169.15 904.04 178.47C894.92 187.79 883.1 192.43 868.6 192.43C854.1 192.43 842.1 187.77 832.98 178.47C823.86 169.15 819.3 157.23 819.3 142.65C819.3 128.07 823.86 115.97 832.98 106.69C842.1 97.41 853.98 92.77 868.6 92.77V92.79ZM868.6 172.01C876.34 172.01 882.64 169.27 887.5 163.81C892.34 158.35 894.76 151.23 894.76 142.49C894.76 133.75 892.34 126.67 887.5 121.25C882.66 115.85 876.36 113.15 868.6 113.15C860.84 113.15 854.26 115.85 849.38 121.25C844.5 126.65 842.06 133.73 842.06 142.49C842.06 151.25 844.5 158.35 849.38 163.81C854.26 169.27 860.66 172.01 868.6 172.01Z"></path>
+        <path d="M1081.6 129.83V190.11H1059.56V133.29C1059.56 126.73 1057.88 121.61 1054.5 117.91C1051.12 114.23 1046.54 112.37 1040.72 112.37C1034.54 112.37 1029.6 114.39 1025.9 118.41C1022.22 122.45 1020.36 128.09 1020.36 135.33V190.09H998.04V133.27C998.04 126.71 996.4 121.59 993.12 117.89C989.84 114.21 985.3 112.35 979.48 112.35C973.3 112.35 968.32 114.37 964.58 118.39C960.84 122.41 958.96 128.07 958.96 135.31V190.07H936.28V95.39H957.38L958.14 104.49C963.64 96.43 972.6 92.39 985.04 92.39C992.28 92.39 998.58 93.89 1003.88 96.89C1009.2 99.89 1013.22 104.27 1015.98 110.01C1018.3 104.51 1022.12 100.19 1027.46 97.07C1032.8 93.95 1039.16 92.39 1046.54 92.39C1057.28 92.39 1065.82 95.71 1072.14 102.33C1078.46 108.95 1081.6 118.11 1081.6 129.79V129.83Z"></path>
+        <path d="M1193.54 151.11H1120.98C1121.74 158.23 1124.42 163.67 1129.04 167.43C1133.66 171.19 1139.54 173.05 1146.66 173.05C1158.22 173.05 1166.32 168.23 1170.94 158.61L1189.88 166.11C1186.32 174.43 1180.7 180.93 1173.06 185.61C1165.4 190.29 1156.6 192.65 1146.66 192.65C1132.66 192.65 1121.3 188.07 1112.58 178.91C1103.86 169.75 1099.5 157.73 1099.5 142.87C1099.5 128.01 1103.9 115.91 1112.68 106.59C1121.46 97.27 1132.94 92.63 1147.14 92.63C1161.34 92.63 1172.3 97.23 1180.8 106.41C1189.3 115.59 1193.56 127.69 1193.56 142.69V151.13L1193.54 151.11ZM1121.36 135.17H1170.48C1170.04 127.49 1167.72 121.63 1163.5 117.59C1159.28 113.55 1153.6 111.55 1146.48 111.55C1139.36 111.55 1133.66 113.59 1129.24 117.69C1124.8 121.79 1122.18 127.61 1121.36 135.17Z"></path>
+    </g>
+</svg>
+
+<script src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/pagefind-modular-ui.js"></script>
+<div class="pagefind-ui__form" id="search"><form class="pagefind-modular-input-wrapper" role="search" aria-label="Search this site" action="javascript:void(0);"><label for="pfmod-input-0" data-pfmod-sr-hidden="true">Search this site</label><input id="pfmod-input-0" class="pagefind-modular-input" autocapitalize="none" enterkeyhint="search"><button class="pagefind-modular-input-clear" data-pfmod-suppressed="true">Clear</button></form></div>
+<script>
+
+
+    class El {
+        constructor(tagname) {
+            this.element = document.createElement(tagname);
+        }
+
+        id(s) {
+            this.element.id = s;
+            return this;
+        }
+
+        class(s) {
+            this.element.classList.add(s);
+            return this;
+        }
+
+        attrs(obj) {
+            for (const [k,v] of Object.entries(obj)) {
+                this.element.setAttribute(k, v);
+            }
+            return this;
+        }
+
+        text(t) {
+            this.element.innerText = t;
+            return this;
+        }
+
+        html(t) {
+            this.element.innerHTML = t;
+            return this;
+        }
+
+        handle(e, f) {
+            this.element.addEventListener(e, f);
+            return this;
+        }
+
+        addTo(el) {
+            if (el instanceof El) {
+                el.element.appendChild(this.element);
+            } else {
+                el.appendChild(this.element);
+            }
+            return this.element;
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', (event) => {
+
+        const targetClass = "search-results";
+        const docel = document.getElementsByClassName("document");
+        if (docel.length === 0)
+            return;
+        const inpel = document.getElementById("search");
+        if (!inpel)
+            return;
+
+        const mobileWidth = getComputedStyle(document.body).getPropertyValue("--mobile-width-stop");
+
+        function isMobile() {
+            return window.innerWidth <= mobileWidth;
+        }
+
+        const target = document.createElement("div");
+        target.classList.add(targetClass);
+        target.id = targetClass;
+        target.style.display = "none";
+        docel.item(0).appendChild(target);
+
+        const margin = 20;
+
+        function getLink(location, anchors, url) {
+            if (!anchors || !anchors.length)
+                return null;
+            // find the closest anchor at or before the current location
+            const anchor = anchors.sort((a, b) => b.location - a.location).find(a => a.location <= location);
+            if (anchor) {
+                return url + "#" + anchor.id;
+            }
+            return null;
+        }
+
+        const resultTemplate = (result) => {
+            const wrapper = new El("li").class("pagefind-modular-list-result");
+
+            const thumb = new El("div").class("pagefind-modular-list-thumb").addTo(wrapper);
+            let image = result?.meta?.image;
+            if (image) {
+                if (image.includes("/_images/"))
+                    image = image.substring(image.indexOf("/_images/"));
+                new El("img").class("pagefind-modular-list-image").attrs({
+                    src: image,
+                    alt: result.meta.image_alt || result.meta.title
+                }).addTo(thumb);
+            }
+
+            const inner = new El("div").class("pagefind-modular-list-inner").addTo(wrapper);
+            const title = new El("p").class("pagefind-modular-list-title").addTo(inner);
+            new El("a").class("pagefind-modular-list-link").text(result.meta?.title).attrs({
+                href: result.meta?.url || result.url
+            }).addTo(title);
+
+            const excerpt = new El("p").class("pagefind-modular-list-excerpt").addTo(inner);
+            const locations = result.weighted_locations.sort((a, b) => b.weight - a.weight);
+            const url = getLink(locations[0]?.location, result.anchors, result.url) || result.meta?.url || result.url;
+            new El("a").class("pagefind-modular-list-link").html(result.excerpt).attrs({
+                href: url
+            }).addTo(excerpt);
+
+            return wrapper.element;
+        }
+
+
+        function resizeTarget() {
+            const searchPos = inpel.getBoundingClientRect();
+            let leftPos;
+            let topPos;
+            const maxWidth = 650;
+            target.style.width = "auto;"
+            target.style.height = "fit-content";
+            target.style.maxWidth = maxWidth + "px";
+            let rightPos = margin;
+            if (isMobile()) {
+                // position search results left aligned with the search box, and below.
+                leftPos = margin / 2;
+                topPos = searchPos.bottom + margin / 2;
+                rightPos = margin / 2;
+            } else {
+                // position search results top aligned with the search box, and to its right.
+                leftPos = searchPos.right + margin * 2;
+                topPos = searchPos.top;
+                if (rightPos - leftPos > maxWidth)
+                    rightPos = leftPos + maxWidth;
+            }
+            target.style.right = rightPos + "px";
+            target.style.top = topPos + "px";
+            target.style.left = leftPos + "px";
+            let twidth = window.innerWidth - margin - leftPos;
+            if (twidth > maxWidth)
+                twidth = maxWidth;
+            target.style.width = twidth + "px";
+            target.style.maxHeight = (window.innerHeight - margin - topPos) + "px";
+        }
+
+        window.addEventListener("resize", (event) => { resizeTarget(); });
+
+        function showTarget() {
+            if (target.style.display !== "block") {
+                target.style.display = "block";
+                document.addEventListener('click', clickCallback);
+            }
+            resizeTarget();
+        }
+
+        function search_focus() {
+            const input_field = document.getElementById("pfmod-input-0");
+            if (input_field) {
+                requestAnimationFrame(() => input_field.focus());
+            }
+        }
+
+
+        function hideTargets() {
+            if (target.style.display !== "none") {
+                target.style.display = "none";
+                document.removeEventListener('click', clickCallback);
+                // keep focus on search box after clicking on search result
+                search_focus();
+            }
+        }
+
+
+        const instance = new PagefindModularUI.Instance({
+            showSubResults: true,
+            showImages: false,
+            ranking: {
+                pageLength: 0.0,
+                termSaturation: 1.6,
+                termFrequency: 0.4,
+                termSimilarity: 6.0
+            }
+        });
+
+        instance.add(new PagefindModularUI.Input({
+            containerElement: "#search"
+        }));
+
+        instance.add(new PagefindModularUI.ResultList({
+            containerElement: "#search-results",
+            resultTemplate: resultTemplate
+        }));
+
+        const clickCallback = (event) => {
+            const path = event.composedPath();
+            if (path.includes(inpel))
+                return;
+            hideTargets();
+        };
+        if (target) {
+            instance.on("results", (results) => {
+                if (results.results.length) {
+                    showTarget();
+                } else {
+                    hideTargets();
+                }
+            });
+        }
+        // focus the search field on page load.
+        search_focus();
+        // focus when clicking on clear button
+        const clears = document.getElementsByClassName("pagefind-modular-list-clear");
+        for (let i = 0; i !== clears.length; i++) {
+            clears[i].addEventListener("click", search_focus);
+        }
+    });
+</script>
+  <div>
+    <h3><a href="https://esphome.io/">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">BME68x Temperature, Humidity, Pressure &amp; Gas Sensor via BSEC2</a><ul>
+<li><a class="reference internal" href="#component-hub">Component/Hub</a><ul>
+<li><a class="reference internal" href="#configuration-variables">Configuration variables:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sensor">Sensor</a><ul>
+<li><a class="reference internal" href="#id1">Configuration variables:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#text-sensor">Text Sensor</a><ul>
+<li><a class="reference internal" href="#id2">Configuration variables:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#index-for-air-quality-iaq-measurement">Index for Air Quality (IAQ) Measurement</a></li>
+<li><a class="reference internal" href="#iaq-accuracy-and-calibration">IAQ Accuracy and Calibration</a></li>
+<li><a class="reference internal" href="#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
+
+  </div><hr>
+<ul>
+    <li><a href="https://discord.gg/KhAMKrd" target="_blank">Join the community</a></li>
+    <li><a href="https://twitter.com/esphome_" target="_blank">Follow us on Twitter</a></li>
+    <li><a href="https://github.com/esphome/esphome" target="_blank">Source Code</a></li>
+    <li><a href="mailto:esphome@nabucasa.com">Contact</a> (no support!)</li>
+</ul>
+ESPHome is part of the <a href="https://www.openhomefoundation.org/" target="_blank">Open Home Foundation</a>
+<ul>
+    <li><a href="https://www.netlify.com/" target="_blank">This site is powered by Netlify</a></li>
+</ul>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+  <ul class="breadcrumbs">
+  
+      <li><a href="https://esphome.io/components/">Supported Microcontrollers</a> ▸</li>
+      <li><a href="https://esphome.io/components/sensor/">Sensor Component</a> ▸</li>
+      <li>BME68x Temperature, Humidity, Pressure &amp; Gas Sensor via BSEC2</li>
+
+  
+  </ul>
+
+
+          <div class="body" role="main">
+            
+  <section id="bme68x-temperature-humidity-pressure-gas-sensor-via-bsec2">
+<h1>BME68x Temperature, Humidity, Pressure &amp; Gas Sensor via BSEC2<a class="headerlink" href="#bme68x-temperature-humidity-pressure-gas-sensor-via-bsec2" title="Permalink to this heading">¶</a></h1>
+<section id="component-hub">
+<h2>Component/Hub<a class="headerlink" href="#component-hub" title="Permalink to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">bme68x_bsec2_i2c</span></code> sensor platform allows you to use your
+<a class="reference external" href="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf">BME680</a> and
+<a class="reference external" href="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf">BME688</a>
+(<a class="reference external" href="https://www.adafruit.com/product/3660">Adafruit</a>, <a class="reference external" href="https://shop.pimoroni.com/products/bme680-breakout">Pimoroni</a>) temperature, humidity, pressure and gas sensors with ESPHome via the Bosch Sensortec
+Environmental Cluster 2 (BSEC2) software library. The use of Bosch’s proprietary algorithms provide an Index for Air
+Quality (IAQ) measurement derived from the gas resistance sensor’s response to specific Volatile Organic Compounds
+(VOCs). The BSEC software also provides estimated values for CO₂ and Breath Volatile Organic Compounds (b-VOC) using
+a correlation between VOC and CO₂ in a human’s exhaled breath.</p>
+<p>The <a class="reference internal" href="https://esphome.io/components/i2c#i2c"><span class="std std-ref">I²C</span></a> is required to be set up in your configuration for this sensor to work.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The BSEC2 library is only available for use after accepting its software license agreement. By enabling this
+component in your configuration, you are explicitly agreeing to the terms of the <a class="reference external" href="https://www.bosch-sensortec.com/media/boschsensortec/downloads/software/bme688_development_software/2023_04/license_terms_bme688_bme680_bsec.pdf">BSEC license agreement</a>. Note
+that the license forbids distribution of any compiled firmware binaries that include this component.</p>
+</div>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="https://esphome.io/_images/bme680-full.jpg"><img alt="../../_images/bme680-full.jpg" src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/bme680-full.jpg" style="width: 50.0%;"></a>
+<figcaption>
+<p><span class="caption-text">BME680 Temperature, Pressure, Humidity &amp; Gas Sensor.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="https://esphome.io/_images/bme680-bsec-ui.png"><img alt="../../_images/bme680-bsec-ui.png" src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/bme680-bsec-ui.png" style="width: 80.0%;"></a>
+<figcaption>
+<p><span class="caption-text">Example UI</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre id="codecell0"><span></span><span class="c1"># Minimal example configuration with common sensors</span>
+<span class="nt">bme68x_bsec2_i2c</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0x76</span>
+<span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bme680</span>
+<span class="w">  </span><span class="nt">operating_age</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">28d</span>
+<span class="w">  </span><span class="nt">sample_rate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">LP</span>
+<span class="w">  </span><span class="nt">supply_voltage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.3V</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell0">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+<section id="configuration-variables">
+<h3>Configuration variables:<a class="headerlink" href="#configuration-variables" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>address</strong> (<em>Optional</em>, int): Manually specify the I²C address of the sensor. Defaults to <code class="docutils literal notranslate"><span class="pre">0x76</span></code>. The sensor can
+also be configured to use <code class="docutils literal notranslate"><span class="pre">0x77</span></code>.</p></li>
+<li><p><strong>model</strong> (<em>Optional</em>, string): The model of the connected sensor; either <code class="docutils literal notranslate"><span class="pre">BME680</span></code> or <code class="docutils literal notranslate"><span class="pre">BME688</span></code>.</p></li>
+<li><p><strong>algorithm_output</strong> (<em>Optional</em>, string): The output of the BSEC2 algorithm. Either <code class="docutils literal notranslate"><span class="pre">classification</span></code> (default) or
+<code class="docutils literal notranslate"><span class="pre">regression</span></code>. <em>Only valid when model is BME688.</em></p></li>
+<li><p><strong>operating_age</strong> (<em>Optional</em>, string): The history BSEC2 considers for the automatic background calibration of the
+IAQ in days. That means changes in this time period will influence the IAQ value. Either <code class="docutils literal notranslate"><span class="pre">4d</span></code> or <code class="docutils literal notranslate"><span class="pre">28d</span></code>.</p></li>
+<li><p><strong>sample_rate</strong> (<em>Optional</em>, string): Sample rate. Default is <code class="docutils literal notranslate"><span class="pre">LP</span></code> for low power consumption, sampling every 3
+seconds. Can be <code class="docutils literal notranslate"><span class="pre">ULP</span></code> for ultra-low power, sampling every 5 minutes. This controls the sampling rate for
+gas-dependent sensors and will govern the interval at which the sensor heater is operated. By default, this rate will
+also be used for temperature, humidity and pressure sensors but can be overridden per-sensor if required.</p></li>
+<li><p><strong>supply_voltage</strong> (<em>Optional</em>, string): Supply voltage of the sensor. Default is <code class="docutils literal notranslate"><span class="pre">3.3V</span></code>. Can be set to <code class="docutils literal notranslate"><span class="pre">1.8V</span></code> if
+your sensor is powerd with 1.8 volts (for example, the Pimoroni PIM357 BME680 breakout module).</p></li>
+<li><p><strong>temperature_offset</strong> (<em>Optional</em>, float): Temperature offset if device is in enclosure and reads too high. This
+value is subtracted from the reading (for example, if the sensor reads 5°C higher than expected, set this to <code class="docutils literal notranslate"><span class="pre">5</span></code>)
+and also corrects the relative humidity readings. Defaults to <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><strong>state_save_interval</strong> (<em>Optional</em>, <a class="reference internal" href="https://esphome.io/guides/configuration-types#config-time"><span class="std std-ref">Time</span></a>): The minimum interval at which to save the calibrated BSEC2
+algorithm state to flash so that calibration doesn’t have to start from scratch on device restart. Defaults to <code class="docutils literal notranslate"><span class="pre">6h</span></code>.</p></li>
+<li><p><strong>id</strong> (<em>Optional</em>, <a class="reference internal" href="https://esphome.io/guides/configuration-types#config-id"><span class="std std-ref">ID</span></a>): Manually specify the ID used for code generation. Use this ID in the sensor
+section to refer to the correct BME68x sensor if you have more than one device. This will also be used to refer to
+the calibrated BSEC2 algorithm state saved to flash.</p></li>
+</ul>
+</section>
+</section>
+<section id="sensor">
+<h2>Sensor<a class="headerlink" href="#sensor" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre id="codecell1"><span></span><span class="nt">sensor</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bme68x_bsec2</span>
+<span class="w">    </span><span class="nt">temperature</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"BME68x</span><span class="nv"> </span><span class="s">Temperature"</span>
+<span class="w">    </span><span class="nt">pressure</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"BME68x</span><span class="nv"> </span><span class="s">Pressure"</span>
+<span class="w">    </span><span class="nt">humidity</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"BME68x</span><span class="nv"> </span><span class="s">Humidity"</span>
+<span class="w">    </span><span class="nt">iaq</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"BME68x</span><span class="nv"> </span><span class="s">IAQ"</span>
+<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iaq</span>
+<span class="w">    </span><span class="nt">co2_equivalent</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"BME68x</span><span class="nv"> </span><span class="s">CO2</span><span class="nv"> </span><span class="s">Equivalent"</span>
+<span class="w">    </span><span class="nt">breath_voc_equivalent</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"BME68x</span><span class="nv"> </span><span class="s">Breath</span><span class="nv"> </span><span class="s">VOC</span><span class="nv"> </span><span class="s">Equivalent"</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell1">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+<section id="id1">
+<h3>Configuration variables:<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>bme68x_bsec2_id</strong> (<em>Optional</em>, <a class="reference internal" href="https://esphome.io/guides/configuration-types#config-id"><span class="std std-ref">ID</span></a>): The ID of the <code class="docutils literal notranslate"><span class="pre">bme68x_bsec2_i2c</span></code> component sensors will refer
+to. Useful when multiple devices are present in your configuration.</p></li>
+<li><p><strong>temperature</strong> (<em>Optional</em>): Configuration for the temperature sensor.</p>
+<ul>
+<li><p><strong>sample_rate</strong> (<em>Optional</em>, string): Optional sample rate override for this sensor. Can be <code class="docutils literal notranslate"><span class="pre">LP</span></code> for low power
+consumption, sampling every 3 seconds or <code class="docutils literal notranslate"><span class="pre">ULP</span></code> for ultra-low power, sampling every 5 minutes.</p></li>
+<li><p>All other options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>pressure</strong> (<em>Optional</em>): Configuration for the pressure sensor.</p>
+<ul>
+<li><p><strong>sample_rate</strong> (<em>Optional</em>, string): Optional sample rate override for this sensor. Can be <code class="docutils literal notranslate"><span class="pre">LP</span></code> for low power
+consumption, sampling every 3 seconds or <code class="docutils literal notranslate"><span class="pre">ULP</span></code> for ultra-low power, sampling every 5 minutes.</p></li>
+<li><p>All other options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>humidity</strong> (<em>Optional</em>): Configuration for the humidity sensor.</p>
+<ul>
+<li><p><strong>sample_rate</strong> (<em>Optional</em>, string): Optional sample rate override for this sensor. Can be <code class="docutils literal notranslate"><span class="pre">LP</span></code> for low power
+consumption, sampling every 3 seconds or <code class="docutils literal notranslate"><span class="pre">ULP</span></code> for ultra-low power, sampling every 5 minutes.</p></li>
+<li><p>All other options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>gas_resistance</strong> (<em>Optional</em>): Configuration for the gas sensor.</p>
+<ul>
+<li><p>All options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>iaq</strong> (<em>Optional</em>): Configuration for the IAQ sensor.</p>
+<ul>
+<li><p>All options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>iaq_static</strong> (<em>Optional</em>): Configuration for the IAQ static sensor.</p>
+<ul>
+<li><p>All options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>iaq_accuracy</strong> (<em>Optional</em>): Configuration for the numeric IAQ accuracy sensor.</p>
+<ul>
+<li><p>All options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>co2_equivalent</strong> (<em>Optional</em>): Configuration for the CO₂ equivalent sensor.</p>
+<ul>
+<li><p>All options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>breath_voc_equivalent</strong> (<em>Optional</em>): Configuration for the Breath VOC equivalent humidity sensor.</p>
+<ul>
+<li><p>All options from <a class="reference internal" href="https://esphome.io/components/sensor/#config-sensor"><span class="std std-ref">Sensor</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="text-sensor">
+<h2>Text Sensor<a class="headerlink" href="#text-sensor" title="Permalink to this heading">¶</a></h2>
+<p>The sensor’s accuracy can be reported in text format.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre id="codecell2"><span></span><span class="nt">text_sensor</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bme68x_bsec2</span>
+<span class="w">    </span><span class="nt">iaq_accuracy</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"BME68x</span><span class="nv"> </span><span class="s">IAQ</span><span class="nv"> </span><span class="s">Accuracy"</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+<section id="id2">
+<h3>Configuration variables:<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>bme68x_bsec2_id</strong> (<em>Optional</em>, <a class="reference internal" href="https://esphome.io/guides/configuration-types#config-id"><span class="std std-ref">ID</span></a>): The ID of the <code class="docutils literal notranslate"><span class="pre">bme68x_bsec2_i2c</span></code> component the text sensor
+will refer to. Useful when multiple devices are present in your configuration.</p></li>
+<li><p><strong>iaq_accuracy</strong> (<em>Optional</em>): Configuration for the IAQ accuracy sensor. Shows: <code class="docutils literal notranslate"><span class="pre">Stabilizing</span></code>, <code class="docutils literal notranslate"><span class="pre">Uncertain</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Calibrating</span></code>, <code class="docutils literal notranslate"><span class="pre">Calibrated</span></code>.</p>
+<ul>
+<li><p>All other options from <a class="reference internal" href="https://esphome.io/components/text_sensor/#config-text-sensor"><span class="std std-ref">Text Sensor</span></a>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="index-for-air-quality-iaq-measurement">
+<h2>Index for Air Quality (IAQ) Measurement<a class="headerlink" href="#index-for-air-quality-iaq-measurement" title="Permalink to this heading">¶</a></h2>
+<p>The measurements are expressed with an index scale ranging from 0 to 500. The index itself is deduced from tests using
+ethanol gas, as well as important VOC in the exhaled breath of healthy humans. The VOC values themselves are derived
+from several publications on breath analysis studies.  The BSEC2 software library defines the levels as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>IAQ Index</p></th>
+<th class="head"><p>Air Quality</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0 - 50</p></td>
+<td><p>Excellent</p></td>
+</tr>
+<tr class="row-odd"><td><p>51 - 100</p></td>
+<td><p>Good</p></td>
+</tr>
+<tr class="row-even"><td><p>101 - 150</p></td>
+<td><p>Lightly polluted</p></td>
+</tr>
+<tr class="row-odd"><td><p>151 - 200</p></td>
+<td><p>Moderately polluted</p></td>
+</tr>
+<tr class="row-even"><td><p>201 - 250</p></td>
+<td><p>Heavily polluted</p></td>
+</tr>
+<tr class="row-odd"><td><p>251 - 350</p></td>
+<td><p>Severely polluted</p></td>
+</tr>
+<tr class="row-even"><td><p>&gt; 351</p></td>
+<td><p>Extremely polluted</p></td>
+</tr>
+</tbody>
+</table>
+<p>This can be represented by a template text sensor such as below</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre id="codecell3"><span></span><span class="nt">text_sensor</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">template</span>
+<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"BME68x</span><span class="nv"> </span><span class="s">IAQ</span><span class="nv"> </span><span class="s">Classification"</span>
+<span class="w">    </span><span class="nt">lambda</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|-</span>
+<span class="w">      </span><span class="no">if ( int(id(iaq).state) &lt;= 50) {</span>
+<span class="w">        </span><span class="no">return {"Excellent"};</span>
+<span class="w">      </span><span class="no">}</span>
+<span class="w">      </span><span class="no">else if (int(id(iaq).state) &gt;= 51 &amp;&amp; int(id(iaq).state) &lt;= 100) {</span>
+<span class="w">        </span><span class="no">return {"Good"};</span>
+<span class="w">      </span><span class="no">}</span>
+<span class="w">      </span><span class="no">else if (int(id(iaq).state) &gt;= 101 &amp;&amp; int(id(iaq).state) &lt;= 150) {</span>
+<span class="w">        </span><span class="no">return {"Lightly polluted"};</span>
+<span class="w">      </span><span class="no">}</span>
+<span class="w">      </span><span class="no">else if (int(id(iaq).state) &gt;= 151 &amp;&amp; int(id(iaq).state) &lt;= 200) {</span>
+<span class="w">        </span><span class="no">return {"Moderately polluted"};</span>
+<span class="w">      </span><span class="no">}</span>
+<span class="w">      </span><span class="no">else if (int(id(iaq).state) &gt;= 201 &amp;&amp; int(id(iaq).state) &lt;= 250) {</span>
+<span class="w">        </span><span class="no">return {"Heavily polluted"};</span>
+<span class="w">      </span><span class="no">}</span>
+<span class="w">      </span><span class="no">else if (int(id(iaq).state) &gt;= 251 &amp;&amp; int(id(iaq).state) &lt;= 350) {</span>
+<span class="w">        </span><span class="no">return {"Severely polluted"};</span>
+<span class="w">      </span><span class="no">}</span>
+<span class="w">      </span><span class="no">else if (int(id(iaq).state) &gt;= 351) {</span>
+<span class="w">        </span><span class="no">return {"Extremely polluted"};</span>
+<span class="w">      </span><span class="no">}</span>
+<span class="w">      </span><span class="no">else {</span>
+<span class="w">        </span><span class="no">return {"error"};</span>
+<span class="w">      </span><span class="no">}</span>
+</pre><button class="copybtn o-tooltip--left" data-tooltip="Copy" data-clipboard-target="#codecell3">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copy" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <title>Copy to clipboard</title>
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+  <path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"></path>
+</svg>
+    </button></div>
+</div>
+<p>The selected b-VOC gasses are as follows:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Compound</p></th>
+<th class="head"><p>Molar fraction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Ethane">Ethane</a></p></td>
+<td><p>5 ppm</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Isoprene">Isoprene</a></p></td>
+<td><p>10 ppm</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Ethanol">Ethanol</a></p></td>
+<td><p>10 ppm</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Acetone">Acetone</a></p></td>
+<td><p>50 ppm</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://en.wikipedia.org/wiki/Carbon_monoxide">Carbon Monoxide</a></p></td>
+<td><p>15 ppm</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="iaq-accuracy-and-calibration">
+<span id="bsec2-calibration"></span><h2>IAQ Accuracy and Calibration<a class="headerlink" href="#iaq-accuracy-and-calibration" title="Permalink to this heading">¶</a></h2>
+<p>The BSEC2 software automatically calibrates in the background to provide consistent IAQ performance. The calibration
+process considers the recent measurement history so that a value of 50 corresponds to a “typical good” level and a
+value of 200 to a “typical polluted” level. The IAQ Accuracy sensor will indicate one of the following values:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Stabilizing</span></code>: The device has just started, and the sensor is stabilizing (this typically lasts 5 minutes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Uncertain</span></code>: The background history of BSEC2 is uncertain. This typically means the gas sensor data was too stable
+for BSEC2 to clearly define its reference.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Calibrating</span></code>: BSEC2 found new calibration data and is currently calibrating.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Calibrated</span></code>: BSEC2 calibrated successfully.</p></li>
+</ul>
+<p>Every <code class="docutils literal notranslate"><span class="pre">state_save_interval</span></code>, or as soon thereafter when full calibration is reached, the current algorithm state is
+saved to flash so that the process does not have to start from scratch on device restart.</p>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="https://esphome.io/components/sensor/#sensor-filters"><span class="std std-ref">Sensor Filters</span></a></p></li>
+<li><p><a class="reference internal" href="https://esphome.io/components/sensor/absolute_humidity"><span class="doc">Absolute Humidity</span></a></p></li>
+<li><p><a class="reference internal" href="https://esphome.io/components/sensor/bme680"><span class="doc">BME680 Temperature+Pressure+Humidity+Gas Sensor</span></a></p></li>
+<li><p><a class="reference external" href="https://esphome.io/api/bme68x__bsec2__i2c_8h">API Reference</a></p></li>
+<li><p><a class="reference external" href="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme680-ds001.pdf">BME680 datasheet</a></p></li>
+<li><p><a class="reference external" href="https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf">BME688 datasheet</a></p></li>
+<li><p><a class="reference external" href="https://community.bosch-sensortec.com/t5/MEMS-sensors-forum/BME680-VOC-classification/td-p/26154">BME680 VOC classification</a></p></li>
+<li><p><a class="reference external" href="https://github.com/boschsensortec/Bosch-BSEC2-Library">Bosch BSEC2 Library</a> by <a class="reference external" href="https://www.bosch-sensortec.com/">Bosch Sensortec</a></p></li>
+<li><p><a class="reference external" href="https://community.bosch-sensortec.com/">Bosch Sensortec Community</a></p></li>
+<li><p><a class="reference external" href="https://github.com/esphome/esphome-docs/blob/current/components/sensor/bme68x_bsec2.rst">Edit this page on GitHub</a></p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  <div class="search-results" id="search-results" style="display: none;"></div></div>
+  <div class="custom-footer">
+    <div class="side">
+      <div class="ohf">
+        <span>ESPHome is a project from the</span>
+        <a href="https://www.openhomefoundation.org/" target="_blank">
+          <picture>
+            <source srcset="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/ohf-logo-on-dark.svg 1x" media="(prefers-color-scheme: dark)">
+            <img width="180px" src="BME68x%20Temperature,%20Humidity,%20Pressure%20&amp;%20Gas%20Sensor%20via%20BSEC2%20%E2%80%94%20ESPHome_ficheiros/ohf-logo-on-light.svg" alt="Open Home Foundation">
+          </picture>
+        </a>
+      </div>
+    </div>
+    <div class="side">
+      <div class="links">
+        <a href="https://github.com/esphome/esphome" target="_blank">Source Code</a>
+        <a href="mailto:esphome@nabucasa.com">Contact</a><small>(no support)</small>
+      </div>
+      <a href="https://www.netlify.com/" class="link-netlify" target="_blank">This site is powered by Netlify</a>
+    </div>
+  </div>
+  <div id="upgrade-footer">
+    A new version has been released since you last visited this page: 2025.2.2 🎉
+    <div class="footer-button-container">
+      <div role="button" id="upgrade-footer-dismiss" class="footer-button">Dismiss</div>
+      <a class="footer-button" href="https://esphome.io/changelog/2025.2.0" id="upgrade-footer-changelog">View Changelog</a>
+    </div>
+  </div>
+  <script>
+    var old = window.localStorage.getItem("version");
+    if (old === null || window.location.pathname.lastIndexOf("/changelog/", 0) === 0) { window.localStorage.setItem("version", "2025.2");
+    } else if (old !== "2025.2") {
+      const footerEl = document.getElementById("upgrade-footer");
+      footerEl.classList.add("not-hidden");
+      footerEl.addEventListener('click', function () {
+        window.localStorage.setItem("version", "2025.2");
+        footerEl.classList.remove("not-hidden");
+      });
+    }
+  </script>
+
+  
+</body></html>
